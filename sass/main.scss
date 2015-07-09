@@ -1,0 +1,807 @@
+﻿/* Main Theme Styles file */
+// Major components.
+@import "reset";
+@import "vars";
+@import "functional";
+@import "header";
+@import "slider_theme";
+@import "sumoselect";
+@import "mixins";
+@import "fonts";
+@import "shop";
+@import "tribe_events";
+
+/* -------------------------------------------------------------------------------------------------------------------
+                                                  General elements
+------------------------------------------------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $roboto;
+  color: $color_primary;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #000;
+  font-weight: 300;
+  @include break($mobile) {
+    font-size: 13px;
+  }
+  @include break($x-small) {
+    font-size: 12px;
+  }
+}
+
+.site {
+  padding: 15px 0 0 0;
+  @include break($mobile) {
+    padding: 0;
+    > .container {
+      padding: 0;
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  padding-bottom: 15px;
+}
+
+a {
+  color: $color_link;
+  text-decoration: underline;
+  &:hover {
+    outline: none;
+    text-decoration: none;
+    color: $color_hover;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+blockquote {
+  background: url("../images/icons/icon-quote.png") no-repeat scroll 0 6px rgba(0, 0, 0, 0);
+  font-style: italic;
+  padding: 0 0 10px 40px;
+}
+
+/* Buttons & Links
+------------------------------------------------------------ */
+/* Default button */
+.btn {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 10px 27px;
+  position: relative;
+  text-decoration: none;
+  background: $color_primary;
+  color: #fff;
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    background: $color_hover;
+    color: #fff;
+  }
+}
+
+.details {
+  font-weight: bold;
+  padding: 0 20px 0 0;
+  position: relative;
+  text-transform: uppercase;
+  text-decoration: none;
+  @include break($x-small) {
+    font-size: 11px;
+  }
+  &:after {
+    background: url("../images/icons/icon-arrow-right.gif");
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -5px;
+    @include size(8px, 8px);
+  }
+}
+
+input[type="submit"],
+input[type="reset"],
+.go-back {
+  font-family: $roboto;
+  background: $color_link;
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  display: inline-block;
+  line-height: 1;
+  padding: 10px 20px;
+  &:hover {
+    background: $color_hover;
+  }
+}
+
+input[type="reset"],
+.go-back {
+  background: #ccc;
+  &:hover {
+    background-color: $color_link;
+  }
+}
+
+/* Default list */
+.list ul {
+  margin: 0;
+  li {
+    position: relative;
+    padding: 0 0 10px 20px;
+    &:before {
+      @include circle(7px, $color_hover);
+      position: absolute;
+      top: 8px;
+      left: 0;
+    }
+    @include break($mobile) {
+      padding-left: 20px;
+      &:before {
+        width: 6px;
+        height: 6px;
+        top: 7px;
+      }
+    }
+    // 2nd level.
+    ul {
+      padding: 10px 0 0;
+      li {
+        padding-bottom: 5px;
+        &:before {
+          background: #fff;
+          border: 1px solid #777;
+          height: 6px;
+          left: 8px;
+          top: 9px;
+          width: 6px;
+        }
+      }
+    }
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* Ordered List */
+ol {
+  li {
+    padding: 0 0 10px;
+  }
+}
+
+/* Default classes.
+------------------------------------------------------------ */
+.wrapper {
+  overflow: hidden;
+}
+
+.fleft {
+  float: left;
+}
+
+.fright {
+  float: right;
+}
+
+.spacer {
+  clear: both;
+  float: none;
+  height: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+.clear {
+  float: none;
+  clear: both;
+  height: 0;
+}
+
+/* Form fields.
+------------------------------------------------------------ */
+.site {
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='tel'],
+  input[type='url'],
+  input[type='search'],
+  textarea,
+  select {
+    font-family: $roboto;
+    outline: none;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 7px 15px;
+    width: 100%;
+    border-radius: 3px;
+    font-weight: normal;
+    &:hover {
+      border-color: #ccc;
+    }
+    &:focus {
+      border-color: #aaa;
+    }
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='tel'],
+  input[type='url'],
+  input[type='search'] {
+  }
+
+  textarea {
+    max-height: 147px;
+    padding: 15px;
+  }
+
+  select {
+    padding: 7px 5px;
+    width: 160px;
+    height: 34px;
+  }
+
+}
+
+/* Images.
+------------------------------------------------------------ */
+.wp-post-image {
+}
+
+.alignleft {
+  float: left;
+  margin: 0 20px 10px 0;
+}
+
+.alignright {
+  float: right;
+  margin: 0 0 10px 20px;
+}
+
+.aligncenter {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+img.border {
+  border: 5px solid #f2ead7;
+}
+
+.featured-thumbnail {
+  margin-bottom: 10px;
+  max-width: 100%;
+  margin-right: 25px;
+  line-height: 0;
+  img {
+    height: auto;
+  }
+  a {
+    display: block;
+    overflow: hidden;
+    @include break($mobile) {
+      display: inline-block;
+    }
+    img {
+      display: block;
+      transition: .3s;
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  figcaption {
+    margin-top: 10px;
+  }
+}
+
+/* General site layout controls.
+------------------------------------------------------------ */
+#content {
+  @include break($mobile) {
+    margin-top: 0;
+  }
+}
+
+.site-content {
+  position: relative;
+  clear: both;
+  background: #fff;
+  padding: 40px 50px 30px;
+  .home & {
+    padding: 0;
+  }
+  @include break($neutral) {
+    padding: 30px 30px 20px;
+  }
+  @include break($x-small) {
+    padding: 20px 20px 15px;
+  }
+}
+
+// Set padding for specific inner page elements if we have 100% content width.
+.content-padding {
+  padding: 40px 50px 30px;
+  @include break($neutral) {
+    padding: 30px 30px 20px;
+  }
+  @include break($x-small) {
+    padding: 20px 20px 15px;
+  }
+}
+
+// Content width.
+.width {
+  width: 1170px;
+  margin: 0 auto;
+  max-width: 100%;
+  @include break($medium) {
+    width: 100%;
+    max-width: 760px;
+  }
+  @include break($mobile) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+// Apply fluid with by adding short custom classes
+.w100 {
+  width: 100%;
+}
+
+.w50 {
+  width: 50%;
+}
+
+.w33 {
+  width: 33.3%;
+}
+
+.w25 {
+  width: 25%;
+}
+
+// Mobile rules.
+@include break($mobile) {
+
+  .row {
+    margin: 0;
+  }
+
+  // Spacing below repeated columns.
+  [class*='col-'] {
+    margin-top: 30px;
+    padding-left: 0;
+    padding-right: 0;
+    &:first-child,
+    .wpcf7-form & {
+      margin-top: 0;
+    }
+  }
+
+  .sidebar-left {
+    margin-top: 0;
+  }
+
+}
+
+/* Titles
+------------------------------------------------------------ */
+h1 {
+  font-family: $roboto;
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 1;
+  padding: 0 0 30px;
+  .home & {
+    font-size: 5em;
+  }
+  em {
+    color: $color_link;
+    font-style: normal;
+  }
+  @include break($neutral) {
+    font-size: 40px;
+  }
+  @include break($mobile) {
+    font-size: 32px;
+    font-weight: 300;
+    padding: 0 0 15px;
+  }
+  @include break($x-small) {
+    font-size: 27px;
+  }
+}
+
+h2 {
+  font-family: $roboto;
+  font-size: 36px;
+  font-weight: 300;
+  padding-bottom: 20px;
+  em {
+    color: $color_link;
+    font-style: normal;
+  }
+  @include break($neutral) {
+    font-size: 22px;
+  }
+  @include break($mobile) {
+    font-size: 18px;
+  }
+  @include break($x-small) {
+    font-size: 17px;
+  }
+}
+
+h3 {
+  font-family: $roboto;
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  a {
+    text-decoration: none;
+  }
+  @include break($medium) {
+    font-size: 18px;
+  }
+  @include break($mobile) {
+    font-size: 16px;
+  }
+  @include break($x-small) {
+    font-size: 14px;
+  }
+}
+
+h4 {
+  font-family: $roboto;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  @include break($mobile) {
+    font-size: 14px;
+  }
+  @include break($x-small) {
+    font-size: 12px;
+  }
+}
+
+h5 {
+  font-family: $roboto;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  @include break($x-small) {
+    font-size: 12px;
+  }
+}
+
+h6 {
+  color: #9f3e2e;
+  font-family: $oswald;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  @include break($x-small) {
+    font-size: 12px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------
+                                                  Content section
+------------------------------------------------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------------------------------------------------
+                                                  Home page
+------------------------------------------------------------------------------------------------------------------- */
+.block-home {
+  padding: 40px 50px 30px;
+  @include break($mobile) {
+    padding: 30px 30px 20px;
+  }
+  @include break($x-small) {
+    padding: 20px 20px 15px;
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------
+                                              Custom blocks
+------------------------------------------------------------------------------------------------------------------- */
+// Faq page.
+.block-faq {
+  padding: 0 0 0 40px;
+  strong {
+    position: relative;
+    &:before {
+      color: $color_link;
+      content: "Q.";
+      font-size: 30px;
+      font-weight: 100;
+      left: -40px;
+      position: absolute;
+      top: -15px;
+    }
+  }
+  span {
+    font-weight: bold;
+    text-decoration: none !important;
+  }
+  em {
+    display: block;
+    font-style: normal;
+    padding-bottom: 15px;
+    position: relative;
+    &:before {
+      color: #979797;
+      content: "A.";
+      font-size: 30px;
+      font-weight: 100;
+      left: -40px;
+      position: absolute;
+      top: -15px;
+    }
+  }
+}
+
+/* NextGen Gallery
+------------------------------------------------------------ */
+.site .ngg-galleryoverview {
+  .ngg-gallery-thumbnail-box {
+    padding: 0 4px 4px 0;
+    width: 33.3%;
+    margin: 0;
+    &:nth-child(3n+1) {
+      clear: left;
+    }
+    @include break($neutral) {
+      width: 50%;
+      &:nth-child(3n+1) {
+        clear: none;
+      }
+      &:nth-child(2n+1) {
+        clear: left;
+      }
+    }
+    @include break($x-small) {
+      width: 100%;
+      float: none;
+    }
+  }
+  .ngg-gallery-thumbnail {
+    text-align: left;
+    float: none;
+    a {
+      text-decoration: none;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      img {
+        height: auto;
+        width: 100%;
+        margin: 0;
+        border: 1px solid #e8e8e8;
+        padding: 8px;
+      }
+      &::after {
+        background: rgba(0, 0, 0, 0) url("../images/icons/icon-gallery.png") repeat scroll 0 0;
+        content: "";
+        height: 37px;
+        left: 50%;
+        margin-left: -19px;
+        margin-top: -19px;
+        position: absolute;
+        top: -50%;
+        transition: all 0.3s ease 0s;
+        width: 37px;
+      }
+      // Link hover.
+      &:hover {
+        img {
+          border: 1px solid $color_link;
+          background: $color_link;
+        }
+        &::after {
+          top: 50%;
+        }
+      }
+    }
+    .info {
+      font-size: 14px;
+      padding: 10px 5px;
+      strong {
+        display: block;
+        text-transform: capitalize;
+      }
+      em {
+        display: block;
+        font-style: normal;
+        color: #a6a6a6;
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 11px;
+      }
+      span {
+        color: #8b8b8b;
+        font-size: 100%;
+        padding: 0;
+      }
+    }
+    // Item hover.
+    &:hover {
+      em {
+        color: #404040;
+      }
+      span {
+        color: $color_primary;
+      }
+    }
+  }
+}
+
+/* NextGen Gallery -> Album compact view page
+------------------------------------------------------------ */
+.ngg-albumoverview {
+  overflow: hidden;
+  margin: 0 -10px;
+
+  .ngg-album-compact {
+    float: left;
+    padding: 10px;
+    width: 33.3%;
+    @include break($x-small) {
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 300px;
+      width: 100%;
+    }
+  }
+
+  .ngg-album-compactbox {
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+    &::before,
+    &::after {
+      border-bottom: 1px solid #cfcfcf;
+      border-right: 1px solid #cfcfcf;
+      border-radius: 6px;
+      content: " ";
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+    }
+    &::before {
+      bottom: -7px;
+      right: -7px;
+    }
+    &::after {
+      right: -4px;
+      bottom: -4px;
+    }
+    a {
+      display: block;
+      line-height: 0;
+      &:hover {
+        opacity: .8;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  h4 {
+    margin: 10px 0 5px;
+    a {
+      font-size: 16px;
+      padding: 0 0 0 5px;
+      font-weight: bold;
+      color: $color_primary;
+      text-decoration: none;
+      &:hover {
+        color: $color_hover;
+      }
+    }
+  }
+  .ngg-album-gallery-image-counter {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #999;
+    font-weight: 300;
+    padding: 0 0 10px 5px;
+    strong {
+      font-weight: 300;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------
+                                                  Footer
+------------------------------------------------------------------------------------------------------------------- */
+.site-footer {
+  clear: both;
+  @include break($not-mobile) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  a {
+    color: #959595;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .copyright {
+    border-top: 1px solid #505050;
+    color: #6c6c6c;
+    font-size: 12px;
+    margin-top: 20px;
+    overflow: hidden;
+    padding: 20px 0;
+    .col-sm-8 {
+      padding-left: 0;
+    }
+    .col-sm-4 {
+      padding-right: 0;
+    }
+    @include break($mobile) {
+      border: none;
+      margin-top: 0;
+      div {
+        text-align: center;
+        + div {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+

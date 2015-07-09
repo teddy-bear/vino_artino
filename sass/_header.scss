@@ -1,0 +1,326 @@
+/* -------------------------------------------------------------------------------------------------------------------
+                                                  Header elements
+------------------------------------------------------------------------------------------------------------------- */
+.site-header {
+  background: #fff;
+  padding: 15px 30px 20px 0;
+  @include break($neutral) {
+    padding-right: 20px;
+  }
+  @include break($mobile) {
+    padding: 0;
+  }
+}
+
+#logo {
+  float: left;
+  margin-left: -80px;
+  @include break($mobile) {
+    margin: 0;
+  }
+  @include break($x-small) {
+    width: 320px;
+  }
+  a {
+    display: block;
+    max-width: 100%;
+    line-height: 0;
+  }
+}
+
+.header-info {
+  float: right;
+  color: #a9a9a9;
+  text-transform: uppercase;
+  text-align: right;
+  line-height: 1;
+  padding-top: 18px;
+  overflow: hidden;
+  @include break($neutral) {
+    padding-top: 25px;
+  }
+  @include break($mobile) {
+    background: #e3e3e3;
+    float: none;
+    padding: 5px 0 5px 90px;
+    position: relative;
+  }
+  @include break($x-small) {
+    padding-left: 74px;
+  }
+  p {
+    padding: 0;
+  }
+  // Social icons widget.
+  .widget.social-icons {
+    overflow: hidden;
+    margin-bottom: 10px;
+    @include break($mobile) {
+      float: right;
+      margin: 0;
+      padding: 7px 10px 0 0;
+    }
+    @include break($x-small) {
+      display: none;
+    }
+    a {
+      margin: 0 0 0 15px;
+      text-decoration: none;
+      transition: all 0.3s ease 0s;
+      color: #a9a9a9;
+      font-size: 0;
+      line-height: 0;
+      @include break($neutral) {
+        margin-left: 10px;
+      }
+      @include break($mobile) {
+        float: right;
+        overflow: hidden;
+      }
+      i {
+        font-size: 23px;
+        margin: 0;
+        @include break($mobile) {
+          font-size: 28px;
+        }
+        @include break($x-small) {
+          font-size: 18px
+        }
+      }
+      &:hover {
+        color: #a41b22;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .widget.address {
+    font-size: 16px;
+    margin-bottom: 10px;
+    @include break($neutral) {
+      font-size: 13px;
+      margin-bottom: 6px;
+      text-transform: none;
+    }
+    @include break($mobile) {
+      text-transform: uppercase;
+      float: left;
+      font-weight: 500;
+      color: $color_primary;
+    }
+    @include break($x-small) {
+      visibility: visible;
+    }
+  }
+
+  .widget.phone {
+    margin-bottom: 0;
+    font-size: 30px;
+    i {
+      font-size: 24px;
+    }
+    @media (max-width: 1400px) {
+      * {
+        color: $color_link;
+        text-decoration: none;
+      }
+    }
+    @include break($neutral) {
+      font-size: 22px;
+      i {
+        font-size: 18px;
+      }
+    }
+    @include break($mobile) {
+      color: $color_primary;
+      float: left;
+      clear: left;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    @include break($x-small) {
+      visibility: visible;
+    }
+  }
+}
+
+/* Primary menu
+------------------------------------------------------------ */
+.nav-primary {
+  padding-top: 150px;
+  text-align: right;
+  position: relative;
+
+  .pin-wrapper #menu_mobile {
+    width: 165px !important;
+    @media (max-width: 1199px) {
+      width: 213px !important;
+    }
+    @include break($neutral) {
+      width: 158px !important;
+    }
+  }
+  @include break($mobile) {
+    display: none;
+  }
+  // Common styles.
+  .main-menu {
+    a {
+      color: #d2d2d2;
+      display: block;
+      font-family: $oswald;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: normal;
+      white-space: nowrap;
+      &:hover {
+        color: #fff;
+      }
+    }
+    // Active button.
+    li.current_page_item > a,
+    li.current-menu-item > a {
+      color: #fff;
+    }
+    // 1st level menus.
+    > li > a {
+      font-size: 18px;
+      font-family: $playfair;
+      @include break($medium) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  // 2nd Level.
+  ul.sub-menu a {
+    font-size: 12px;
+    font-family: $roboto;
+    padding-right: 9px;
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -1px;
+      background: #d2d2d2;
+      width: 3px;
+      height: 3px;
+    }
+    &:hover:after {
+      background: #fff;
+    }
+  }
+
+}
+
+/* Mobile menu
+------------------------------------------------------------ */
+.mobile-menu-icon {
+  background-color: #a41b22;
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 77px;
+  z-index: 10;
+  color: #fff;
+  text-align: center;
+  padding-top: 4px;
+  font-size: 40px;
+  text-decoration: none;
+  &:hover {
+    color: #fff;
+  }
+  @include break($mobile) {
+    display: block;
+  }
+  @include break($x-small) {
+    width: 61px;
+  }
+  .fa-bars {
+    display: block;
+  }
+  .fa-times {
+    display: none;
+  }
+  .mm-opened & {
+    .fa-bars {
+      display: none;
+    }
+    .fa-times {
+      display: block;
+    }
+  }
+}
+
+/* Mobile menu theme overrides.
+------------------------------------------------------------ */
+.mm-menu {
+  background: #222;
+  color: #d2d2d2;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: $playfair;
+  .mm-listview {
+    // Menu item.
+    li a,
+    li span {
+      padding: 8px 10px 8px 20px;
+      -webkit-tap-highlight-color: rgba(164, 27, 34, 1);
+      &:hover,
+      &:active,
+      &:focus {
+      }
+    }
+    li.act a {
+    }
+    // Sub menu link.
+    li .mm-next {
+      background: url("../images/icons/icon-sub-menu.gif");
+      width: 36px;
+      &:hover {
+        background: url("../images/icons/icon-sub-menu.gif");
+      }
+      &::before,
+      &::after {
+        display: none;
+      }
+      + a,
+      + span {
+        margin-right: 36px;
+      }
+    }
+    li::after {
+      border-color: #353434;
+    }
+  }
+  // Active item.
+  li.current_page_item > a,
+  li.current-menu-item > a {
+    color: #fff;
+  }
+  .mm-header {
+    > a {
+      color: #d2d2d2;
+    }
+    .mm-btn {
+      background: $color_link;
+      &::before,
+      &::after {
+        border-color: #fff;
+      }
+    }
+  }
+
+}
+
+/* Sidebar outer.
+------------------------------------------------------------ */
+.sidebar-outer {
+  border-top: 2px solid #fff;
+  margin-top: 20px;
+  padding-top: 30px;
+}

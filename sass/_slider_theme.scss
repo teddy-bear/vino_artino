@@ -1,0 +1,83 @@
+/* Slider theme.
+------------------------------------------------------------ */
+.flexslider {
+
+  // Left/right arrows.
+  .flex-direction-nav {
+    a {
+      background: url("../images/slider-arrows.png") no-repeat scroll 0 0 transparent;
+      font-size: 0;
+      line-height: 0;
+      height: 68px;
+      margin-top: -34px;
+      opacity: 0.5;
+      position: absolute;
+      text-decoration: none;
+      top: 50%;
+      transition: all 0.3s ease 0s;
+      width: 33px;
+      z-index: 12;
+      display: none;
+      &:hover {
+        opacity: 1;
+      }
+      // Show arrows on touch devices;
+      .touch & {
+        display: block;
+      }
+      &.flex-prev {
+        left: 35px;
+      }
+      &.flex-next {
+        background-position: -34px 0;
+        right: 35px;
+      }
+    }
+  }
+
+  // Slider pagination(dots).
+  .flex-control-nav {
+    position: absolute;
+    bottom: 30px;
+    left: 35px;
+    z-index: 8;
+    li {
+      padding: 0 1px;
+      display: inline-block;
+      zoom: 1;
+      a {
+        background: none repeat scroll 0 0 #fff;
+        cursor: pointer;
+        display: block;
+        float: left;
+        height: 2px;
+        opacity: 0.2;
+        position: relative;
+        text-indent: -999em;
+        width: 18px;
+        &:hover {
+          opacity: 1;
+          top: 1px;
+          height: 4px;
+        }
+        &.flex-active {
+          opacity: 1;
+          height: 4px;
+          top: 1px;
+          cursor: default;
+        }
+      }
+    }
+    @include break($mobile) {
+      display: none;
+    }
+  }
+
+  // Show Left/right arrows on slider hover.
+  &:hover {
+    .flex-direction-nav a {
+      display: block;
+    }
+  }
+}
+

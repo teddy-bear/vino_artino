@@ -1,0 +1,114 @@
+// ++++++++++++++++++++++++ Variables ++++++++++++++++++++++++
+
+// Fonts
+$roboto: 'Roboto', serif;
+$oswald: 'Oswald', serif;
+$playfair: 'Playfair Display', serif;
+
+// Breakpoints /
+$large: large;
+$desktop: desktop;
+$medium: medium;
+$neutral: neutral;
+$mobile: mobile;
+$not-mobile: not-mobile;
+$x-small: x-small;
+
+// Sizing */
+$gutter: 15px;
+
+// Colors */
+$color_primary: #232323;
+$color_secondary: #40402e;
+$color_link: #a41b22;
+$color_hover: #de141e;
+
+@mixin break($point) {
+  @if $point == large {
+    @media (min-width: 1350px) {
+      @content;
+    }
+  } @else if $point == desktop {
+    @media (min-width: 1300px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == neutral {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $point == mobile {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == not-mobile {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $point == x-small {
+    @media (max-width: 479px) {
+      @content;
+    }
+  }
+}
+
+// ++++++++++++++++++++++++ Mixins ++++++++++++++++++++++++ */
+// Column`s width */
+@mixin col-width($width) {
+  width: $width;
+  padding-left: $gutter;
+  padding-right: $gutter;
+  float: left;
+}
+
+// Width Height */
+@mixin size($width: 20px, $height: 20px) {
+  width: $width;
+  height: $height
+}
+
+@mixin circle($size: 10px, $color: #fff) {
+  width: $size;
+  height: $size;
+  background: $color;
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+}
+
+/**
+ * WooCommerce CSS Variables
+ */
+
+$woocommerce: #de141e;
+$green: #7ad03a;
+$red: #a00;
+$orange: #ffba00;
+$blue: #2ea2cc;
+
+// Primary colour for buttons (alt)
+$primary: #a41b22;
+
+// Text on primary colour bg
+$primarytext: #fff;
+
+// Secondary buttons
+$secondary: #ddd;
+
+// Text on secondary colour bg
+$secondarytext: #232323;
+
+// Prices, In stock labels, sales flash
+$highlight: $color_link;
+
+// Text on highlight colour bg
+$highlightext: #fff;
+
+// Content BG - Tabs (active state)
+$contentbg: #fff;
+
+// small, breadcrumbs etc
+$subtext: #777;

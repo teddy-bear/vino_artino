@@ -1,0 +1,460 @@
+/*
+  The Events Calendar Styles
+  by tribe events
+  https://theeventscalendar.com/product/wordpress-events-calendar/
+*/
+
+/* -------------------------------------------------------------------------------------------------------------------
+                                                  Common elements.
+------------------------------------------------------------------------------------------------------------------- */
+.tribe-events-page-template .site-content {
+  padding: 0;
+}
+
+.book-tickets {
+  background-color: $color_link;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  padding: 20px 20px 20px 54px;
+  position: absolute;
+  right: 0;
+  text-decoration: none;
+  top: -13px;
+  line-height: 1;
+  font-size: 16px;
+  cursor: pointer;
+  @include break($mobile) {
+    position: relative;
+    top: 0;
+    right: 0;
+    float: left;
+    padding: 14px 15px 14px 44px;
+    margin: 10px 0 15px;
+  }
+  i {
+    font-size: 30px;
+    left: 13px;
+    position: absolute;
+    top: 11px;
+    @include break($mobile) {
+      font-size: 20px;
+    }
+  }
+  &:hover {
+    background-color: $color_hover;
+    color: #fff;
+  }
+}
+
+#tribe-events .tribe-events-content p,
+.tribe-events-after-html p,
+.tribe-events-before-html p {
+  margin: 0;
+}
+
+#tribe-events .tribe-events-button,
+#tribe-events .tribe-events-button:hover,
+#tribe_events_filters_wrapper input[type="submit"],
+.tribe-events-button, .tribe-events-button.tribe-active:hover,
+.tribe-events-button.tribe-inactive,
+.tribe-events-button:hover,
+.tribe-events-calendar td.tribe-events-present div[id*="tribe-events-daynum-"],
+.tribe-events-calendar td.tribe-events-present div[id*="tribe-events-daynum-"] > a {
+  background-color: #FD7D02;
+  &:hover {
+    background: lighten(#fd7d02, 5%);
+  }
+}
+
+/* Header navigation (next/prev month).
+------------------------------------------------------------ */
+#tribe-events-header {
+  position: relative;
+  &::before,
+  &::after {
+    display: none;
+  }
+  h2 {
+    text-align: center;
+    margin: 0;
+  }
+  .tribe-events-sub-nav {
+    li {
+      display: block;
+      position: absolute;
+      top: 12px;
+      @media (max-width: 768px) {
+        position: static;
+        a {
+          margin-bottom: 0;
+        }
+      }
+      a {
+        display: block !important;
+        background: #fd7d02;
+        color: #fff;
+        @include break($not-mobile) {
+          border-radius: 3px;
+          padding: 6px 9px;
+          text-transform: uppercase;
+          font-size: 11px;
+          &:hover {
+            background: lighten(#fd7d02, 5%);
+          }
+        }
+      }
+      &.tribe-events-nav-previous {
+        left: 20px;
+      }
+      &.tribe-events-nav-next {
+        right: 20px;
+      }
+    }
+  }
+}
+
+#tribe-events-footer {
+  padding: 10px 20px 0;
+  .tribe-events-sub-nav li a {
+    background: #fd7d02;
+    color: #fff;
+    @include break($not-mobile) {
+      display: block;
+      border-radius: 3px;
+      padding: 6px 9px;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+    &:hover {
+      background: lighten(#fd7d02, 5%);
+    }
+  }
+  ~ .tribe-events-ical {
+    @include break($not-mobile) {
+      display: block;
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: -40px;
+      max-width: 190px;
+    }
+  }
+}
+
+/* Upcoming events widget
+------------------------------------------------------------ */
+.tribe-events-list-widget {
+  h3 {
+    font-size: 28px;
+    line-height: 1;
+    color: #ff3333;
+    font-family: $playfair;
+    text-transform: uppercase;
+  }
+  ol li {
+    margin: 0;
+    padding-bottom: 15px;
+    > img {
+      float: left;
+      margin-right: 10px;
+    }
+  }
+  h4 {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    a {
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .duration {
+    color: #868686;
+    font-size: 11px;
+  }
+  .fa-clock-o {
+    margin-left: 3px;
+  }
+  .tribe-events-widget-link a {
+    color: #999;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 8px 0;
+    border: 2px solid #999;
+    text-decoration: none;
+    font-family: $playfair;
+    font-size: 12px;
+    font-weight: normal;
+    &:hover {
+      background: #999;
+      color: #000;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------
+                                                  Calendar main page.
+------------------------------------------------------------------------------------------------------------------- */
+.events-archive.events-gridview #tribe-events-content table .type-tribe_events {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vcalendar {
+  td {
+    .event-item {
+      padding: 5px;
+      + div {
+        .vevent {
+          border-top: 1px solid #e7e7e7 !important;
+          padding-top: 5px !important;
+        }
+      }
+    }
+    .extra-info {
+      visibility: visible;
+      @include break($mobile) {
+        margin: 0;
+        padding: 2px 5px;
+        border: none;
+      }
+      .category {
+        display: block;
+        color: #114b7d;
+        @include break($mobile) {
+          display: none;
+        }
+      }
+      time {
+        display: block;
+        font-size: 11px;
+        @include break($mobile) {
+          display: none;
+        }
+      }
+      img {
+        @include break($x-small) {
+          display: none;
+        }
+
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------
+                                                  Single Event page.
+------------------------------------------------------------------------------------------------------------------- */
+#tribe-events-content {
+  margin: 0;
+  padding: 0 0 20px;
+  @include break($mobile) {
+    > .content-padding {
+      padding: 0 0 10px;
+    }
+  }
+}
+
+/* 1st & 3rd rows */
+.tribe-events-single-section.primary,
+.single-tribe_events #tribe-events-content form.cart {
+}
+
+/* 2nd row */
+.tribe-events-single-section.secondary {
+  background: none;
+  border: none;
+}
+
+.single-tribe_events {
+  h2 {
+    position: relative;
+    &.tribe-events-tickets-title {
+      font-size: 48px;
+      font-weight: 300;
+      margin: 20px 0 0;
+      @include break($medium) {
+        font-size: 40px;
+      }
+      @include break($neutral) {
+        font-size: 32px;
+      }
+      @include break($mobile) {
+        font-size: 26px;
+      }
+      &::before {
+        @extend .fa;
+        content: "\f145";
+      }
+    }
+  }
+
+  #message {
+    background: #f3f3f3;
+    border-top: 2px solid #8fae1b;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+    font-size: 18px;
+    left: 50%;
+    padding: 20px 25px;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    z-index: 100;
+    display: none;
+    i {
+      color: #8fae1b;
+      font-size: 24px;
+      position: relative;
+      top: 2px;
+      margin-right: 5px;
+    }
+  }
+
+  .tribe-events-schedule {
+    clear: both;
+    .tribe-events-cost {
+      color: $color_link;
+      font-weight: 500;
+      display: inline-block;
+      @include break($mobile) {
+        float: right;
+      }
+    }
+    h3 {
+      @include break($mobile) {
+        font-size: 12px;
+        display: inline-block;
+      }
+      i {
+        font-size: 24px;
+        margin-right: 7px;
+        @include break($mobile) {
+          font-size: 12px;
+        }
+        &.fa-clock-o {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  .tribe-events-content,
+  .tribe-events-cal-links,
+  .tribe-events-promo {
+    padding: 0 50px;
+    @include break($neutral) {
+      padding: 0 30px;
+    }
+    @include break($x-small) {
+      padding: 0 20px;
+    }
+  }
+  /* Image gallery
+  ------------------------------------------------------------ */
+  .image-gallery {
+    overflow: hidden;
+    padding: 0 50px;
+    @include break($neutral) {
+      padding: 0 30px;
+    }
+    @include break($x-small) {
+      padding: 0 20px;
+    }
+    .item {
+      padding: 0 4px 4px 0;
+      width: 33.3%;
+      float: left;
+      &:nth-child(3n+1) {
+        clear: left;
+      }
+      @include break($neutral) {
+        width: 50%;
+        &:nth-child(3n+1) {
+          clear: none;
+        }
+        &:nth-child(2n+1) {
+          clear: left;
+        }
+      }
+      @include break($x-small) {
+        width: 100%;
+        float: none;
+      }
+    }
+    figure {
+      text-align: left;
+      float: none;
+      a {
+        text-decoration: none;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        img {
+          height: auto;
+          width: 100%;
+          margin: 0;
+          border: 1px solid #e8e8e8;
+          padding: 8px;
+        }
+        &::after {
+          background: rgba(0, 0, 0, 0) url("../images/icons/icon-gallery.png") repeat scroll 0 0;
+          content: "";
+          height: 37px;
+          left: 50%;
+          margin-left: -19px;
+          margin-top: -19px;
+          position: absolute;
+          top: -50%;
+          transition: all 0.3s ease 0s;
+          width: 37px;
+        }
+        // Link hover.
+        &:hover {
+          img {
+            border: 1px solid $color_link;
+            background: $color_link;
+          }
+          &::after {
+            top: 50%;
+          }
+        }
+      }
+      figcaption {
+        font-size: 14px;
+        padding: 10px 5px;
+        strong {
+          display: block;
+          text-transform: capitalize;
+        }
+        em {
+          display: block;
+          font-style: normal;
+          color: #a6a6a6;
+          font-weight: 300;
+          text-transform: uppercase;
+          font-size: 11px;
+        }
+        span {
+          color: #8b8b8b;
+          font-size: 100%;
+          padding: 0;
+        }
+      }
+      // Item hover.
+      &:hover {
+        em {
+          color: #404040;
+        }
+        span {
+          color: $color_primary;
+        }
+      }
+    }
+  }
+}
+
