@@ -54,8 +54,8 @@
         <div class="clear"></div>
 
         <span class="overlay">
-							<span class="arrow"></span>
-						</span>
+          <span class="arrow"></span>
+        </span>
 
       <?php else: ?>
 
