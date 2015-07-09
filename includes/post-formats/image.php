@@ -5,7 +5,7 @@
     <?php if ( ! is_singular() ) : ?>
 
       <h2 class="entry-title"><a href="<?php the_permalink(); ?>"
-                                 title="<?php _e( 'Permalink to:'); ?> <?php the_title(); ?>"><?php the_title(); ?></a>
+                                 title="<?php _e( 'Permalink to:' ); ?> <?php the_title(); ?>"><?php the_title(); ?></a>
       </h2>
 
     <?php else : ?>
@@ -40,9 +40,9 @@
     <div class="post-thumb clearfix">
 
       <?php
-      $thumb = get_post_thumbnail_id();
+      $thumb   = get_post_thumbnail_id();
       $img_url = wp_get_attachment_url( $thumb, 'full' ); //get img URL
-      $image = aq_resize( $img_url, 600, 300, TRUE ); //resize & crop img
+      $image   = aq_resize( $img_url, 600, 300, TRUE ); //resize & crop img
       ?>
 
       <?php if ( $lightbox ) : ?>
